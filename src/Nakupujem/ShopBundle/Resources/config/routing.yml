@@ -1,0 +1,3 @@
+shop:
+    resource: "@NakupujemShopBundle/Controller"
+    type:     annotation

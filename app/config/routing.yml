@@ -1,0 +1,4 @@
+nakupujem_shop:
+    resource: "@NakupujemShopBundle/Resources/config/routing.yml"
+    prefix:   /
+

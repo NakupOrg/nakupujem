@@ -1,0 +1,11 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}NakupujemShopBundle:Subcategory:index{% endblock %}
+
+{% block body %}
+	{% if subcategories %}
+		{% for subcategory in subcategories %}
+			{{subcategory.category.name}} : {{subcategory.name}} <br>
+		{% endfor %}
+	{% endif %}
+{% endblock %}

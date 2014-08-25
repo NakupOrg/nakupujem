@@ -1,0 +1,7 @@
+parameters:
+#    nakupujem_shop.example.class: Nakupujem\ShopBundle\Example
+
+services:
+#    nakupujem_shop.example:
+#        class: %nakupujem_shop.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

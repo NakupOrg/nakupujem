@@ -1,0 +1,20 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}NakupujemShopBundle:Product:add{% endblock %}
+
+{% block body %}
+{{form_start(form)}}
+
+{{form_row(form.title)}}
+{{form_row(form.description)}}
+{{form_row(form.phone)}}
+{{form_row(form.email)}}
+{{form_row(form.location)}}
+{{form_row(form.shipping)}}
+{{form_row(form.price)}}
+{{form_row(form.date)}}
+{{form_row(form.top)}}
+{{form_row(form.subcategory)}}
+{{form_widget(form.photo, {'attr': {'label': ''}})}}
+{{form_end(form)}}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Produkty{% endblock %}
+
+{% block body %}
+	{% if not products %}
+		<h2>Žiadne produkty, všetko sa vypredalo</h2>
+	{% else %}
+		{% for product in products %}
+			{{product.title}} <br>
+		{% endfor %}
+{% endif %}
+{% endblock %}
