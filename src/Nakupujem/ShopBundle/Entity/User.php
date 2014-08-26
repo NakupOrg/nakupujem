@@ -88,6 +88,7 @@ class User implements UserInterface
     public function __construct()
     {
         $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->salt = md5(microtime());
     }
 
     /**

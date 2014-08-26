@@ -3,17 +3,17 @@
 {% block title %}NakupujemShopBundle:Security:userLogin{% endblock %}
 
 {% block body %}<form action="{{path('_user_security_check')}}" method="post">
-		<div class="registerForm">
-	          	<div class="row region">
+		<div>
+	          	<div>
             		<label>Username: </label>
 	            	<input type="text" name="_username" id="schoolRegion">
 
           		</div>
-          		<div class="row region">
-	            	<label>Password</label>
+          		<div>
+	            	<label>Password: </label>
 	            	<input type="password" name="_password" id="schoolRegion">
           		</div>
-              <button type="submit" style="margin-top: 20px; height: 70px;">Submit</button>
+              <button type="submit">Submit</button>
 
     	</div>
 	</form>
