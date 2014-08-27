@@ -105,7 +105,7 @@ class Product
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\ManyToOne(targetEntity="Nakupujem\ShopBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="Nakupujem\ShopBundle\Entity\User", inversedBy="product")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      *  }

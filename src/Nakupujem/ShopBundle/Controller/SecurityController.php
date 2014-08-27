@@ -16,7 +16,7 @@ use Nakupujem\ShopBundle\Form\RegisterUserType;
 class SecurityController extends Controller
 {
     /**
-     * @Route("/security-check/user", name="_user_security_check")
+     * @Route("/user/security-check", name="_user_security_check")
      * @Template()
      */
     public function userSecurityCheckAction()

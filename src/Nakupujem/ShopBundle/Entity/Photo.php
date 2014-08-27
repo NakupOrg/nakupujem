@@ -41,6 +41,8 @@ class Photo
      */
     private $product;
 
+    private $uploadDir;
+
     /**
      * @Assert\File(maxSize="6000000")
      */
@@ -149,10 +151,15 @@ class Photo
     {
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.
-        return 'uploads/photos';
+        return $this->uploadDir;
     }
 
-    public function upload()
+    public function setUploadDir($product_name)
+    {
+        $this->uploadDir = "uploads/photos/" . $product_name . "/";
+    }
+
+    public function upload($product_name)
     {
     // the file property can be empty if the field is not required
     if (null === $this->getFile()) {
@@ -164,18 +171,16 @@ class Photo
 
     // move takes the target directory and then the
     // target filename to move to
-    foreach($files as $file)
-    {
     $this->getFile()->move(
         $this->getUploadRootDir(),
         $this->getFile()->getClientOriginalName()
     );
 
     // set the path property to the filename where you've saved the file
-    $this->path = $this->getFile()->getClientOriginalName();
+    $this->path = $product_name . "/" . $this->getFile()->getClientOriginalName();
 
     // clean up the file property as you won't need it anymore
     $this->file = null;
-    }
+    
 }
 }

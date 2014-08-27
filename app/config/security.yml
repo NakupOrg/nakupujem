@@ -1,6 +1,7 @@
 security:
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
+        Nakupujem\ShopBundle\Entity\User: plaintext
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
@@ -51,5 +52,5 @@ security:
             path: /login/user
             roles: IS_AUTHENTICATED_ANONYMOUSLY
         admin_area:
-            path: /user/.*
+            path: /user/*
             roles: ROLE_USER
