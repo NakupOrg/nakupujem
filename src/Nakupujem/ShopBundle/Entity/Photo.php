@@ -154,12 +154,12 @@ class Photo
         return $this->uploadDir;
     }
 
-    public function setUploadDir($product_name)
+    public function setUploadDir($hash)
     {
-        $this->uploadDir = "uploads/photos/" . $product_name . "/";
+        $this->uploadDir = "uploads/photos/" . $hash . "/";
     }
 
-    public function upload($product_name)
+    public function upload($hash)
     {
     // the file property can be empty if the field is not required
     if (null === $this->getFile()) {
@@ -177,7 +177,7 @@ class Photo
     );
 
     // set the path property to the filename where you've saved the file
-    $this->path = $product_name . "/" . $this->getFile()->getClientOriginalName();
+    $this->path = $hash . "/" . $this->getFile()->getClientOriginalName();
 
     // clean up the file property as you won't need it anymore
     $this->file = null;

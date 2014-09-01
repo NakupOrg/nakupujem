@@ -55,8 +55,9 @@ class ProductController extends Controller
 
         if($form->isValid())
         {
-            $photo->setUploadDir($product->getTitle());
-            $photo->upload($product->getTitle());
+            $hash = substr(md5(microtime()), 1, 4);
+            $photo->setUploadDir($hash);
+            $photo->upload($hash);
             $product->setUser($user);
             $em->persist($product);
             $em->flush();
