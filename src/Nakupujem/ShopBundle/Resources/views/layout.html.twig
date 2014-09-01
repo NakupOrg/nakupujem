@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7 paceSimple sidebar sidebar-fusion sidebar-kis footer-sticky navbar-sticky"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8 paceSimple sidebar sidebar-fusion sidebar-kis footer-sticky navbar-sticky"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9 paceSimple sidebar sidebar-fusion sidebar-kis footer-sticky navbar-sticky"> <![endif]-->
+<!--[if gt IE 8]> <html class="ie paceSimple sidebar sidebar-fusion sidebar-kis footer-sticky navbar-sticky"> <![endif]-->
+<!--[if !IE]><!--><html class="paceSimple sidebar sidebar-fusion sidebar-kis footer-sticky navbar-sticky"><!-- <![endif]-->
+<head>
+    <title>Nakupujem.net</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <!--
+    **********************************************************
+    In development, use the LESS files and the less.js compiler
+    instead of the minified CSS loaded by default.
+    **********************************************************
+    <link rel="stylesheet/less" href="../assets/less/shop/module.shop.stylesheet-complete.less" />
+    -->
+
+            <!--[if lt IE 9]><link rel="stylesheet" href="../assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
+
+                    <link rel="stylesheet" href="../assets/css/shop/module.shop.stylesheet-complete.min.css" />
+        
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../assets/plugins/core_ajaxify_loadscript/script.min.js?v=v2.0.0-rc1&amp;sv=v0.0.1.2"></script>
+
+<script>var App = {};</script>
+
+<script data-id="App.Scripts">
+App.Scripts = {
+
+    /* CORE scripts always load first; */
+    core: [
+        '../assets/library/jquery/jquery.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/library/modernizr/modernizr.js?v=v2.0.0-rc1&sv=v0.0.1.2'
+    ],
+
+    /* PLUGINS_DEPENDENCY always load after CORE but before PLUGINS; */
+    plugins_dependency: [
+        '../assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/library/jquery/jquery-migrate.min.js?v=v2.0.0-rc1&sv=v0.0.1.2'
+    ],
+
+    /* PLUGINS always load after CORE and PLUGINS_DEPENDENCY, but before the BUNDLE / initialization scripts; */
+    plugins: [
+        '../assets/plugins/core_ajaxify_davis/davis.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/plugins/core_ajaxify_lazyjaxdavis/jquery.lazyjaxdavis.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/plugins/core_preload/pace.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/plugins/media_owl-carousel/owl.carousel.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/plugins/forms_elements_bootstrap-select/js/bootstrap-select.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/plugins/media_holder/holder.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/plugins/other_appear/jquery.appear.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/plugins/core_less-js/less.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/plugins/charts_flot/excanvas.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v2.0.0-rc1&sv=v0.0.1.2'
+    ],
+
+    /* The initialization scripts always load last and are automatically and dynamically loaded when AJAX navigation is enabled; */
+    bundle: [
+        '../assets/components/core_ajaxify/ajaxify.init.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/components/core_preload/preload.pace.init.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/components/front_core/front.core.init.js?v=v2.0.0-rc1', 
+        '../assets/components/shop_core/shop.animations.init.js?v=v2.0.0-rc1', 
+        '../assets/components/shop_owl-carousel/front.shop.owl-carousel.catalog.init.js?v=v2.0.0-rc1', 
+        '../assets/components/forms_elements_bootstrap-select/bootstrap-select.init.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '../assets/components/core/core.init.js?v=v2.0.0-rc1'
+    ]
+
+};
+</script>
+
+<script>
+$script(App.Scripts.core, 'core');
+
+$script.ready(['core'], function(){
+    $script(App.Scripts.plugins_dependency, 'plugins_dependency');
+});
+$script.ready(['core', 'plugins_dependency'], function(){
+    $script(App.Scripts.plugins, 'plugins');
+});
+$script.ready(['core', 'plugins_dependency', 'plugins'], function(){
+    $script(App.Scripts.bundle, 'bundle');
+});
+</script>
+    <script>if (/*@cc_on!@*/false && document.documentMode === 10) { document.documentElement.className+=' ie ie10'; }</script>
+
+</head><body>
+
+    <div class="container-fluid">
+
+
+
+        <!-- Nav Bar -->   
+<div class="navbar navbar-coral navbar-fixed-top">
+    <!-- Nav Bar Header -->
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle " data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar "></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Nakupujem.net</a>
+        </div>
+        <!-- Nav Bar Right -->          
+        <ul class="nav navbar-nav navbar-right right-side">
+            <!-- User LogIn Button -->
+            <li> 
+                <div class="btn-group">
+                    <a href="{{path('_user_login')}}" class="btn btn-login"> Login</a>
+                    <a href="" class="btn btn-signup glyphicons user_add"><i></i>Registrujte sa!</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+
+        <div id="content">
+            <div class="bg-gray border-bottom innerT">
+            <div class="container innerTB inner-2x">
+            <div id="owl-catalog" class="owl-carousel owl-theme">
+            
+    <div class="item">
+        <div class="box-generic">
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-lg-9 col-md-8 padding-none">
+                        <a href="product.html">
+                            <img src="../assets/images/shop/photodune-4524631-long-wavy-hair-s.jpg" alt="photo" class="img-responsive" />
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 padding-none">
+                        <div class="innerAll inner-2x">
+                            <a href="cart.htmlcart.html" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
+                            <h3 class="text-uppercase">Product 1</h3>
+                            <span class="text-primary text-medium text-condensed">&euro;262.00</span>
+                            <div class="clearfix"></div>
+                            <div class="separator"></div>
+
+                            <p class="innerTB">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.</p>
+
+                            <a href="cart.html" class="btn btn-primary"><i class="fa fa-plus"></i> Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <div class="item">
+        <div class="box-generic">
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-lg-9 col-md-8 padding-none">
+                        <a href="product.html">
+                            <img src="../assets/images/shop/photodune-4532250-long-wavy-hair-s.jpg" alt="photo" class="img-responsive" />
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 padding-none">
+                        <div class="innerAll inner-2x">
+                            <a href="cart.htmlcart.html" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
+                            <h3 class="text-uppercase">Product 2</h3>
+                            <span class="text-primary text-medium text-condensed">&euro;193.00</span>
+                            <div class="clearfix"></div>
+                            <div class="separator"></div>
+
+                            <p class="innerTB">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.</p>
+
+                            <a href="cart.html" class="btn btn-primary"><i class="fa fa-plus"></i> Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <div class="item">
+        <div class="box-generic">
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-lg-9 col-md-8 padding-none">
+                        <a href="product.html">
+                            <img src="../assets/images/shop/photodune-4524609-long-wavy-hair-s.jpg" alt="photo" class="img-responsive" />
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 padding-none">
+                        <div class="innerAll inner-2x">
+                            <a href="cart.htmlcart.html" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
+                            <h3 class="text-uppercase">Product 3</h3>
+                            <span class="text-primary text-medium text-condensed">&euro;116.00</span>
+                            <div class="clearfix"></div>
+                            <div class="separator"></div>
+
+                            <p class="innerTB">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.</p>
+
+                            <a href="cart.html" class="btn btn-primary"><i class="fa fa-plus"></i> Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div><!-- END OF SLIDER -->
+
+<div class="container">
+    <div class="row innerTB">
+        <div class="col-md-9">
+    <h5 class="text-faded">Filter</h5>
+    <div class="product-filter">
+        <!-- Filters -->
+<div class="filter-bar bg-white">
+    <form class="margin-none form-inline">
+        <div class="row margin-none">
+        
+             <div class="col-md-8">
+                <div class="row margin-none">
+                    <div class="form-group col-md-6 padding-none">
+                        <label class="label-control">Sort:</label>
+                        <div class="col-md-6 padding-none">
+                            <select name="from" class="selectpicker margin-none" data-style="btn-default" data-width="100%">
+                                <option>A-Z</option>
+                                <option>Min to Max</option>
+                                <option>Popular</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- // Select END -->
+                
+                    <!-- Min -->
+                    <div class="form-group col-md-3 padding-none">
+                        <label>Min:</label>
+                        <div class="input-group">
+                            <input type="text" name="from" class="form-control" value="100" />
+                            <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                        </div>
+                    </div>
+                    <!-- // Min END -->
+                    <!-- Max -->
+                    <div class="form-group col-md-3 padding-none">
+                        <label>Max:</label>
+                        <div class="input-group">
+                            <input type="text" name="from" class="form-control" value="500" />
+                            <span class="input-group-addon"><i class="fa fa-euro"></i></span>
+                        </div>
+                    </div>
+                    <!-- // Max END -->
+                </div>
+            </div>
+        
+            <div class="col-md-4 text-right">
+                <div class="form-group padding-none">
+                    <div class="btn-group">
+                        <a href="" class="btn btn-primary"><i class="fa fa-list"></i></a>
+                        <a href="" class="btn btn-default"><i class="fa fa-th"></i></a>
+                    </div>
+                </div>      
+            </div>
+        
+        </div>
+    </form>
+</div>
+<!-- // Filters END -->
+
+
+
+ 
+    </div>
+    <div class="separator"></div>
+
+    <h5 class="text-faded margin-none">Produkty</h5>
+    {% block products %}{% endblock %}
+</div>
+
+
+<div class="col-md-3" data-animate="fadeInRight" data-delay="200">
+    <h5 class="text-faded">Kategórie</h5>
+    <ul class="list-group list-group-front">
+    <li class="list-group-item active"><a href="catalog.html"><i class="fa fa-female"></i> Woman</a></li>
+    <li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">13</span><i class="fa fa-male"></i> Man</a></li>
+    <li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">2</span><i class="fa fa-magic"></i> Accesories</a></li>
+    <li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">2</span><i class="fa fa-pencil"></i> Shoes</a></li>
+    <li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">13</span><i class="fa fa-refresh"></i> Kids</a></li>
+    <li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">13</span><i class="fa fa-refresh"></i> Outlet</a></li>
+    <li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">13</span><i class="fa fa-refresh"></i> Stores</a></li>
+</ul>
+
+</div>
+
+
+
+    </div>
+</div>
+
+        <div class="parallax bg-gray innerTB inner-2x">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="text-center innerAll inner-2x" data-animate="fadeInUp" data-delay="350">
+                            <h2>Support</h2>
+                            
+                        </div>
+                        <div class="text-center innerAll inner-2x" data-animate="fadeInUp" data-delay="400">
+                            <p class="margin-none lead text-center">
+                                <i class="fa fa-2x text-faded fa-phone"></i><br/>
+                                +421-948038541<br/>
+                                +421-908483898
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-center innerAll inner-2x" data-animate="fadeInRight" data-delay="200">
+                            <div class="lead innerAll text-center">
+                                <i class="fa fa-5x text-faded fa-map-marker"></i>
+                                <div class="separator"></div>
+                                <p class="lead strong">Nakupujem.net</p>
+                                Povstanie českého ľudu 22,
+                                Košice<br/>
+                                04022
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="footer" class="hidden-print">
+        <div class="container">
+            <div class="copy">Copyright &copy; 2014 Nakupujem.net. All Rights Reserved.</div>
+        </div>
+    </div>
+    <!-- // Footer END -->
+</div>
+
+    <!-- Global -->
+    <script data-id="App.Config">
+                var basePath = '',
+            commonPath = '../assets/',
+            rootPath = '../',
+            DEV = false,
+            componentsPath = '../assets/components/';
+
+        var primaryColor = '#eb6a5a',
+            dangerColor = '#b55151',
+            successColor = '#609450',
+            infoColor = '#4a8bc2',
+            warningColor = '#ab7a4b',
+            inverseColor = '#45484d';
+
+        var themerPrimaryColor = primaryColor;
+            </script>
+
+    
+</body>
+</html>

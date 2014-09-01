@@ -56,7 +56,7 @@ class SecurityController extends Controller
         if ($form->isSubmitted())
         {
             $em = $this->getDoctrine()->getManager();
-            $user->setLang('sk');
+            $user->setLang(0);
             $em->persist($user);
             $em->flush();
         }
