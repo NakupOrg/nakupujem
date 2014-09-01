@@ -115,8 +115,8 @@ $script.ready(['core', 'plugins_dependency', 'plugins'], function(){
             <!-- User LogIn Button -->
             <li> 
                 <div class="btn-group">
-                    <a href="{{path('_user_login')}}" class="btn btn-login"> Login</a>
-                    <a href="" class="btn btn-signup glyphicons user_add"><i></i>Registrujte sa!</a>
+                    <a href="{{path('_user_login')}}" class="btn btn-login"> {{"txt.login"|trans|raw}}</a>
+                    <a href="" class="btn btn-signup glyphicons user_add"><i></i>{{"txt.register"|trans|raw}}</a>
                 </div>
             </li>
         </ul>
@@ -217,7 +217,7 @@ $script.ready(['core', 'plugins_dependency', 'plugins'], function(){
 <div class="container">
     <div class="row innerTB">
         <div class="col-md-9">
-    <h5 class="text-faded">Filter</h5>
+    <h5 class="text-faded">{{"txt.filter"|trans|raw}}</h5>
     <div class="product-filter">
         <!-- Filters -->
 <div class="filter-bar bg-white">
@@ -279,13 +279,13 @@ $script.ready(['core', 'plugins_dependency', 'plugins'], function(){
     </div>
     <div class="separator"></div>
 
-    <h5 class="text-faded margin-none">Produkty</h5>
+    <h5 class="text-faded margin-none">{{"txt.products"|trans|raw}}</h5>
     {% block products %}{% endblock %}
 </div>
 
 
 <div class="col-md-3" data-animate="fadeInRight" data-delay="200">
-    <h5 class="text-faded">Kategórie</h5>
+    <h5 class="text-faded">{{"txt.categories"|trans|raw}}</h5>
     <ul class="list-group list-group-front">
     <li class="list-group-item active"><a href="catalog.html"><i class="fa fa-female"></i> Woman</a></li>
     <li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">13</span><i class="fa fa-male"></i> Man</a></li>
@@ -308,7 +308,7 @@ $script.ready(['core', 'plugins_dependency', 'plugins'], function(){
                 <div class="row">
                     <div class="col-md-3">
                         <div class="text-center innerAll inner-2x" data-animate="fadeInUp" data-delay="350">
-                            <h2>Support</h2>
+                            <h2>{{"txt.support"|trans|raw}}</h2>
                             
                         </div>
                         <div class="text-center innerAll inner-2x" data-animate="fadeInUp" data-delay="400">
