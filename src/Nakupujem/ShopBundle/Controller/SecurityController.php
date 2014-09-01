@@ -75,4 +75,64 @@ class SecurityController extends Controller
         return $this->redirect($this->generateUrl('_parent_login'));
     }
 
+        /**
+     * @Route("/shop/security-check", name="_shop_security_check")
+     * @Template()
+     */
+    public function shopSecurityCheckAction()
+    {
+        //Security layer will handle this
+    }
+
+    /**
+     * @Route("/login/shop", name="_shop_login")
+     * @Template()
+     */
+    public function shopLoginAction()
+    {
+        if ($this->get('request')->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
+            $error = $this->get('request')->attributes->get(SecurityContext::AUTHENTICATION_ERROR);
+        } else {
+            $error = $this->get('request')->getSession()->get(SecurityContext::AUTHENTICATION_ERROR);
+        }
+
+        return array(
+            'last_username' => $this->get('request')->getSession()->get(SecurityContext::LAST_USERNAME),
+            'error'         => $error,
+        );
+    }
+
+    /**
+     * @Route("/register/shop", name="_shop_register")
+     * @Template()
+     */
+    public function registerShopAction(Request $request)
+    {
+        /*$user = new Shop();
+        $form = $this->createForm(new RegisterUserType(), $user);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $user->setLang('sk');
+            $em->persist($user);
+            $em->flush();
+        }
+
+        return array(
+            'form' => $form->createView(),
+            );*/
+    }
+
+    /**
+     * @Route("/shop/logout", name="_shop_logout")
+     * @Template()
+     */
+    public function shopLogoutAction()
+    {
+        return $this->redirect($this->generateUrl('_parent_login'));
+    }
+
 }

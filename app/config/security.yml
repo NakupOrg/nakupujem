@@ -2,14 +2,18 @@ security:
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
         Nakupujem\ShopBundle\Entity\User: plaintext
+        Nakupujem\ShopBundle\Entity\Shop: plaintext
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
+        ROLE_USER:       ROLE_USER
+        ROLE_SHOP:       ROLE_SHOP
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         entity_user:
                 entity: { class: NakupujemShopBundle:User, property: username }
+        entity_shop:
+                entity: { class: NakupujemShopBundle:Shop, property: email }
 
     firewalls:
         dev:
@@ -35,22 +39,38 @@ security:
         user_area:
             pattern:    /user/.
             provider: entity_user
-            anonymous: ~
+            #anonymous: ~
             form_login:
                 check_path: _user_security_check
                 login_path: _user_login
-                always_use_default_target_path: true
+                always_use_default_target_path: false
                 default_target_path: /user/profile
             logout: 
                 path:   _user_logout
                 target: /   
 
+        shop_area:
+            pattern: ^/shop
+            provider: entity_shop
+            form_login:
+                check_path: _shop_security_check
+                login_path: _shop_login
+                always_use_default_target_path: false
+                default_target_path: /shop/
+            logout:
+                path: _shop_logout
+                target: /
+
     access_control:
-        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
-        access_control:
-        user_admin:
+        user_login:
             path: /login/user
             roles: IS_AUTHENTICATED_ANONYMOUSLY
         user_area:
-            path: /user/.*
+            path: ^/user/*
             roles: ROLE_USER
+        shop_login:
+            path: /ĺogin/shop
+            roles: IS_AUTHENTICATED_ANONYMOUSLY
+        shop_area:
+            path: ^/shop/*
+            roles: ROLE_SHOP
