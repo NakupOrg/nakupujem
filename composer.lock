@@ -1666,8 +1666,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
-    "prefer-stable": false,
+    "stability-flags": [
+
+    ],
+
     "platform": {
         "php": ">=5.3.3"
     },
