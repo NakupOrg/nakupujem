@@ -22,9 +22,11 @@ class ProductController extends Controller
     public function indexAction()
     {
         $products = $this->getDoctrine()->getRepository('NakupujemShopBundle:Product')->findAll();
+        $categories = $this->getDoctrine()->getRepository('NakupujemShopBundle:Category')->findAll();
 
         return array(
             'products' => $products,
+            'categories' => $categories,
             );
     }
 

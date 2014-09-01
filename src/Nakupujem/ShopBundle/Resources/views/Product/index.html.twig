@@ -15,7 +15,7 @@
 					<span class="text">TOP</span>  
 				</div>
 				<div class="widget-body padding-none">
-					<a href="#" class="thumb"><img src="../assets/images/fashion/female/1.jpg" alt="" class="img-responsive"></a>
+					<a href="#" class="thumb"><img src="{{asset('uploads/photos/')}}{{product.photo[0].path}}" alt="" class="img-responsive"></a>
 					<div class="description">
 						<a href="cart.html" class="btn btn-primary btn-circle pull-right"><i class="fa fa-info"></i></a>
 						<h5 class="text-uppercase">{{product.title}}</h5>
@@ -27,4 +27,16 @@
 		{% endfor %}
 	</div>
 {% endif %}
+{% endblock %}
+
+{% block category %}
+<div class="col-md-3" data-animate="fadeInRight" data-delay="200">
+    <h5 class="text-faded">{{"txt.categories"|trans|raw}}</h5>
+    <ul class="list-group list-group-front">
+    {% for category in categories %}
+    <li class="list-group-item active"><a href="catalog.html"><i class="{{category.faicon}}"></i> {{category.name}}</a></li>
+    {% endfor %}
+</ul>
+
+</div>
 {% endblock %}
