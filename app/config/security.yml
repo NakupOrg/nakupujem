@@ -33,14 +33,14 @@ security:
             #    realm: "Secured Demo Area"
 
         user_area:
-            pattern:    ^/user
+            pattern:    /user/.
             provider: entity_user
             anonymous: ~
             form_login:
                 check_path: _user_security_check
                 login_path: _user_login
                 always_use_default_target_path: true
-                default_target_path: /user/subcategory
+                default_target_path: /user/profile
             logout: 
                 path:   _user_logout
                 target: /   
@@ -51,6 +51,6 @@ security:
         user_admin:
             path: /login/user
             roles: IS_AUTHENTICATED_ANONYMOUSLY
-        admin_area:
-            path: /user/*
+        user_area:
+            path: /user/.*
             roles: ROLE_USER
