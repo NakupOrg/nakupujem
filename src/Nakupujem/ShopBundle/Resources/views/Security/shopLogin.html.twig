@@ -1,0 +1,20 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}NakupujemShopBundle:Security:userLogin{% endblock %}
+
+{% block body %}<form action="{{path('_user_security_check')}}" method="post">
+		<div>
+	          	<div>
+            		<label>Email: </label>
+	            	<input type="text" name="_username" id="schoolRegion">
+
+          		</div>
+          		<div>
+	            	<label>Password: </label>
+	            	<input type="password" name="_password" id="schoolRegion">
+          		</div>
+              <button type="submit">Submit</button>
+
+    	</div>
+	</form>
+{% endblock %}
