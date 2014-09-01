@@ -31,12 +31,16 @@ class ProductController extends Controller
     }
 
     /**
-     * @Route("/show")
+     * @Route("/product/show/{product_Id}")
      * @Template()
      */
-    public function showAction()
+    public function showAction($product_id)
     {
+        $product = $this->getDoctrine()->getRepository('NakupujemShopBundle:Product')->find($product_id);
 
+        return array(
+            'product' => $product,
+            );
     }
 
     /**
