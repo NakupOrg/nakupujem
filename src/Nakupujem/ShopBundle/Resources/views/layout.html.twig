@@ -284,19 +284,7 @@ $script.ready(['core', 'plugins_dependency', 'plugins'], function(){
 </div>
 
 
-<div class="col-md-3" data-animate="fadeInRight" data-delay="200">
-    <h5 class="text-faded">{{"txt.categories"|trans|raw}}</h5>
-    <ul class="list-group list-group-front">
-    <li class="list-group-item active"><a href="catalog.html"><i class="fa fa-female"></i> Woman</a></li>
-    <li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">13</span><i class="fa fa-male"></i> Man</a></li>
-    <li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">2</span><i class="fa fa-magic"></i> Accesories</a></li>
-    <li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">2</span><i class="fa fa-pencil"></i> Shoes</a></li>
-    <li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">13</span><i class="fa fa-refresh"></i> Kids</a></li>
-    <li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">13</span><i class="fa fa-refresh"></i> Outlet</a></li>
-    <li class="list-group-item"><a href="catalog.html"><span class="badge pull-right badge-primary hidden-md">13</span><i class="fa fa-refresh"></i> Stores</a></li>
-</ul>
-
-</div>
+{% block category %} {% endblock %}
 
 
 

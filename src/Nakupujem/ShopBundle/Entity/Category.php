@@ -29,6 +29,13 @@ class Category
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="faicon", type="text")
+     */
+    private $faicon;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\OneToMany(targetEntity="Nakupujem\ShopBundle\Entity\Subcategory", mappedBy="category")     
@@ -71,6 +78,17 @@ class Category
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getFaicon()
+    {
+        return $this->faicon;
+    }
+
+    public function setFaicon($faicon)
+    {
+        $this->faicon = $faicon;
+        return $this;
     }
 
     /**
