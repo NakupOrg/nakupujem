@@ -43,21 +43,21 @@ class ProductController extends Controller
      */
     public function addAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
         $product = new Product();
         $photo = new Photo();
         $product->addPhoto($photo);
+        $photo->setProduct($product);
         $form = $this->createForm(new ProductType(), $product);
+        $user = $this->getDoctrine()->getRepository("NakupujemShopBundle:User")->find(1);
 
         $form->handleRequest($request);
 
         if($form->isValid())
         {
-            $em = $this->getDoctrine()->getManager();
-            foreach ($photo as $item) {
-            $item->upload();
-            $item->setProduct($product);
-                # code...
-            }
+            $photo->setUploadDir($product->getTitle());
+            $photo->upload($product->getTitle());
+            $product->setUser($user);
             $em->persist($product);
             $em->flush();
         }

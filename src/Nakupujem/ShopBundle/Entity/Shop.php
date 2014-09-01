@@ -3,14 +3,14 @@
 namespace Nakupujem\ShopBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * Shop
  *
  * @ORM\Table()
  * @ORM\Entity
  */
-class Shop
+class Shop implements UserInterface
 {
     /**
      * @var integer
@@ -63,6 +63,10 @@ class Shop
      */
     private $salt;
 
+    public function __construct()
+    {
+        $this->salt = md5(microtime());
+    }
 
     /**
      * Get id
@@ -209,6 +213,26 @@ class Shop
      */
     public function getSalt()
     {
-        return $this->salt;
+        return null;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->email;
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_SHOP');
+    }
+
+    public function eraseCredentials()
+    {
+
     }
 }
