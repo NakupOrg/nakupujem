@@ -26,7 +26,11 @@ class RegisterUserType extends AbstractType
 			    'second_options' => array('label' => 'Heslo znova:'),
             	))
             ->add('email', 'email')
-            ->add('location', 'text');
+            ->add('location', 'text')
+            ->add('shipping')
+            ->add('phone')
+            ;
+
     }
     
     /**
