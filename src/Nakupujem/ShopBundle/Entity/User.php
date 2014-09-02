@@ -99,10 +99,18 @@ class User implements UserInterface
      */
     private $product;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Nakupujem\ShopBundle\Entity\Points", mappedBy="user", cascade={"persist", "merge", "remove", "refresh"})     
+     */
+    private $points;
+
     public function __construct()
     {
         $this->product = new \Doctrine\Common\Collections\ArrayCollection();
         $this->salt = md5(microtime());
+        $this->points = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -386,5 +394,38 @@ class User implements UserInterface
     public function eraseCredentials()
     {
 
+    }
+
+    /**
+     * Add points
+     *
+     * @param \Nakupujem\ShopBundle\Entity\Points $points
+     * @return User
+     */
+    public function addPoint(\Nakupujem\ShopBundle\Entity\Points $points)
+    {
+        $this->points[] = $points;
+
+        return $this;
+    }
+
+    /**
+     * Remove points
+     *
+     * @param \Nakupujem\ShopBundle\Entity\Points $points
+     */
+    public function removePoint(\Nakupujem\ShopBundle\Entity\Points $points)
+    {
+        $this->points->removeElement($points);
+    }
+
+    /**
+     * Get points
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPoints()
+    {
+        return $this->points;
     }
 }

@@ -1,0 +1,117 @@
+<?php
+
+namespace Nakupujem\ShopBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Points
+ *
+ * @ORM\Table()
+ * @ORM\Entity
+ */
+class Points
+{
+    /**
+     *
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     *
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToOne(targetEntity="Nakupujem\ShopBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="userId", referencedColumnName="id")
+     *  }
+     * )
+     */
+    private $user;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="amount", type="integer")
+     */
+    private $amount;
+
+    public function __construct()
+    {
+        $this->user = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     * @return Points
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set amount
+     *
+     * @param string $amount
+     * @return Points
+     */
+    public function setAmount($amount)
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    /**
+     * Get amount
+     *
+     * @return string 
+     */
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    /**
+     * Set userId
+     *
+     * @param \Nakupujem\ShopBundle\Entity\User $userId
+     * @return Points
+     */
+    public function setUserId(\Nakupujem\ShopBundle\Entity\User $userId = null)
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Get userId
+     *
+     * @return \Nakupujem\ShopBundle\Entity\User 
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+}
