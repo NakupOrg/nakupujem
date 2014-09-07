@@ -16,7 +16,7 @@
 							"<div class='btn-group'>" 
 							    + "<a class='btn btn-primary' data-wysihtml5-command='bold' title='CTRL+B'>Bold</a>" 
 							    + "<a class='btn btn-primary' data-wysihtml5-command='italic' title='CTRL+I'>Italic</a>" 
-							    //,+ "<a class='btn' data-wysihtml5-command='underline' title='CTRL+U'>Underline</a>" 
+							    //+ "<a class='btn btn-primary' data-wysihtml5-command='underline' title='CTRL+U'>Underline</a>" 
 							+ "</div>" 
 						+ "</li>",
 		"lists": 	"<li>" 
@@ -30,7 +30,7 @@
 
 		"link": 	"<li>" 
 						
-						+ "<div class='bootstrap-wysihtml5-insert-link-modal modal hide fade'>"
+						+ "<div class='bootstrap-wysihtml5-insert-link-modal modal hide fade' tabindex='-3' role='dialog'>"
 							+ "<div class='modal-header'>"
 							+ "<a class='close' data-dismiss='modal'>&times;</a>"
 							  + "<h3>Insert Link</h3>"
@@ -44,13 +44,13 @@
 							+ "</div>"
 						+ "</div>"
 
-				    	+ "<a class='btn btn-primary' data-wysihtml5-command='createLink' title='Link'><i class='fa fa-share-square-o icon-white'></i></a>" 
+				    	//+ "<a class='btn btn-primary' data-wysihtml5-command='createLink' title='Link'><i class='fa fa-share-square-o icon-white'></i></a>" 
 
 					+ "</li>",
 
 			"image": "<li>" 
 						
-						+ "<div class='bootstrap-wysihtml5-insert-image-modal modal hide fade'>"
+						+ "<div class='bootstrap-wysihtml5-insert-image-modal modal hide fade' tabindex='-1' role='dialog'>"
 							+ "<div class='modal-header'>"
 							+ "<a class='close' data-dismiss='modal'>&times;</a>"
 							  + "<h3>Insert Image</h3>"
@@ -64,7 +64,7 @@
 							+ "</div>"
 						+ "</div>"
 
-						+ "<a class='btn btn-primary' data-wysihtml5-command='insertImage' title='Insert image'><i class='fa fa-picture-o icon-white'></i></a>" 
+						//+ "<a class='btn btn-primary' data-wysihtml5-command='insertImage' title='Insert image'><i class='fa fa-picture-o icon-white'></i></a>" 
 
 					+ "</li>",
 

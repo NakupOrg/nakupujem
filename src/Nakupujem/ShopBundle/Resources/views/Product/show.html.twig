@@ -22,7 +22,7 @@
             <!--[if lt IE 9]><link rel="stylesheet" href="{{ asset('assets/components/library/bootstrap/css/')}}bootstrap.min.css" /><![endif]-->
 
                     <link rel="stylesheet" href="{{ asset('assets/css/shop/')}}module.shop.stylesheet-complete.min.css" />
-        
+        			<link rel="stylesheet/less" href="{{ asset('assets/mine/wysihtml5.less')}}" />
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -69,7 +69,7 @@
 
         <div id="content"><div class="page-title">
 	<div class="container">
-		<a href="catalog.html" class="btn btn-default btn-sm"><i class="fa fa-arrow-left fa-fw"></i> Catalog</a>
+		<a href="#" class="btn btn-default btn-sm"><i class="fa fa-arrow-left fa-fw"></i> Späť na produkty</a>
 	</div>
 </div>
 
@@ -117,60 +117,111 @@
 		</div>
 
 		<div class="col-md-8">
-			<h1 class="title text-primary">UV Color Gel - Red Wine</h1>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, vitae, voluptatibus dicta nemo eveniet aliquid esse magnam aperiam cumque distinctio hic beatae quidem velit libero eos vero eum obcaecati ad doloribus eius ea ab laborum atque non sit maiores odio.</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, vitae, voluptatibus dicta nemo eveniet aliquid esse magnam aperiam cumque distinctio hic beatae quidem velit libero eos vero eum obcaecati ad doloribus eius ea ab laborum atque non sit maiores odio.</p>
+			<h1 class="title text-primary">{{product.title}}</h1>
+			{{product.description}}
 			<div class="separator"></div>
 
 			<div class="box-generic padding-none">
 				<h3 class="strong margin-none innerAll border-bottom text-inverse">Price: {{product.price}}€</h3>
-				<div class="innerAll border-bottom">
-					<label>Choose Option:</label>
-					<select class="selectpicker innerT" data-style="btn-default">
-						<option>Mustard</option>
-						<option>Ketchup</option>
-						<option>Relish</option>
-					</select>
-				</div>
 				<div class="innerAll">
-					<button id="modals-bootbox-prompt" href="#" class="btn btn-primary btn-block strong"><i class="fa fa-comments"></i> Kontaktovať predajcu</button>
+					<button data-toggle="collapse" href="#details" class="btn btn-primary btn-block strong"><i class="fa fa-comments"></i> Kontaktovať predajcu</button>
+				</div>
+				<div id="details" class="row innerAll collapse" style="height: 0;">
+					<div class="col-md-12">
+						<!-- Seller´s info -->
+						<div class="widget">
+							<!-- Widget heading -->
+							<div class="widget-head">
+								<h4 class="heading">Kontaktovať priamo</h4>
+							</div>
+							<!-- // Widget heading END -->
+							
+							<div class="widget-body">
+								{{form_start(form)}}
+								<div class="form-group">
+									<label for="nakupujem_shopbundle_contact_form_subject">Predmet</label>
+									{{form_widget(form.subject, {'value': 'Odpoveď z Nakupujem.net: '~product.title})}}
+								</div>
+								<div class="form-group">
+									<label for="nakupujem_shopbundle_contact_form_message">Správa</label>
+									{{form_widget(form.message)}}
+								</div>
+
+								{{form_end(form)}}
+							</div>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<!-- Seller´s info -->
+						<div class="widget">
+							<!-- Widget heading -->
+							<div class="widget-head">
+								<h4 class="heading">Predavajúci</h4>
+							</div>
+							<!-- // Widget heading END -->
+							
+							<div class="widget-body">
+								<table>
+									<tbody>
+										<tr>
+											<th>Meno:</th><td class="innerL">{{product.user.name}}</td>
+										</tr>
+										<tr>
+											<th>Priezvisko:</th><td class="innerL">{{product.user.lastname}}</td>
+										</tr>
+										<tr>
+											<th>E-mail:</th><td class="innerL">{{product.user.email}}</td>
+										</tr>
+										<tr>
+											<th>Telefónne číslo:</th><td class="innerL">{{product.user.phone}}</td>
+										</tr>
+										<tr>
+											<th>Okolie:</th><td class="innerL">{{product.user.location}}</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 			
-			<div class="widget widget-tabs">
-				
-				<!-- Tabs Heading -->
-				<div class="widget-head">
-					<ul>
-						<li class="active"><a class="glyphicons truck" href="#tab-1" data-toggle="tab"><i></i>Delivery</a></li>
-						<li><a class="glyphicons share" href="#tab-2" data-toggle="tab"><i></i>Returns</a></li>
-						<li><a class="glyphicons remove" href="#tab-3" data-toggle="tab"><i></i>Cancelation</a></li>
-					</ul>
-				</div>
-				<!-- // Tabs Heading END -->
-				
-				<div class="widget-body">
-					<div class="tab-content">
+			<div class="col-md-12">
+				<h1 class="title text-inverse">Podmienky</h1>
+				<div class="widget widget-tabs">
+					<!-- Tabs Heading -->
+					<div class="widget-head">
+						<ul>
+							<li class="active"><a class="glyphicons truck" href="#tab-1" data-toggle="tab"><i></i>Doručenie</a></li>
+							<li><a class="glyphicons share" href="#tab-2" data-toggle="tab"><i></i>Návratnosť</a></li>
+							<li><a class="glyphicons remove" href="#tab-3" data-toggle="tab"><i></i>Zrušenie</a></li>
+						</ul>
+					</div>
+					<!-- // Tabs Heading END -->
 					
-						<!-- Tab content -->
-						<div class="tab-pane active animated fadeInUp" id="tab-1">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, debitis magnam perferendis numquam eum repudiandae. Illum, ullam, hic, sapiente blanditiis ea ut quos voluptatum quidem veritatis sunt itaque totam quis incidunt saepe eaque enim.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, animi, excepturi, numquam iusto optio sapiente ea iste reprehenderit voluptas recusandae at blanditiis. Doloremque, libero, quidem provident accusantium sequi eligendi blanditiis?</p>
-						</div>
-						<!-- // Tab content END -->
+					<div class="widget-body">
+						<div class="tab-content">
 						
-						<!-- Tab content -->
-						<div class="tab-pane animated fadeInUp" id="tab-2">
-							<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
-						</div>
-						<!-- // Tab content END -->
-
 							<!-- Tab content -->
-						<div class="tab-pane animated fadeInUp" id="tab-3">
-							<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+							<div class="tab-pane active animated fadeInUp" id="tab-1">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore, debitis magnam perferendis numquam eum repudiandae. Illum, ullam, hic, sapiente blanditiis ea ut quos voluptatum quidem veritatis sunt itaque totam quis incidunt saepe eaque enim.</p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque, animi, excepturi, numquam iusto optio sapiente ea iste reprehenderit voluptas recusandae at blanditiis. Doloremque, libero, quidem provident accusantium sequi eligendi blanditiis?</p>
+							</div>
+							<!-- // Tab content END -->
+							
+							<!-- Tab content -->
+							<div class="tab-pane animated fadeInUp" id="tab-2">
+								<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+							</div>
+							<!-- // Tab content END -->
+
+								<!-- Tab content -->
+							<div class="tab-pane animated fadeInUp" id="tab-3">
+								<p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.</p>
+							</div>
+							<!-- // Tab content END -->
+							
 						</div>
-						<!-- // Tab content END -->
-						
 					</div>
 				</div>
 			</div>
@@ -252,5 +303,8 @@
 <script src="{{ asset('assets/components/ui_modals/')}}modals.init.js?v=v2.0.0-rc1&amp;sv=v0.0.1.2"></script>
 <script src="{{ asset('assets/plugins/notifications_gritter/js/')}}jquery.gritter.min.js?v=v2.0.0-rc1&amp;sv=v0.0.1.2"></script>
 <script src="{{ asset('assets/components/admin_notifications_gritter/')}}gritter.init.js?v=v2.0.0-rc1&amp;sv=v0.0.1.2"></script>
+<script src="{{ asset('assets/plugins/forms_editors_wysihtml5/js/')}}wysihtml5-0.3.0_rc2.min.js?v=v2.0.0-rc1&amp;sv=v0.0.1.2"></script>
+<script src="{{ asset('assets/plugins/forms_editors_wysihtml5/js/')}}bootstrap-wysihtml5-0.0.2.js?v=v2.0.0-rc1&amp;sv=v0.0.1.2"></script>
+<script src="{{ asset('assets/components/forms_editors_wysihtml5/')}}wysihtml5.init.js?v=v2.0.0-rc1"></script>
 </body>
 </html>

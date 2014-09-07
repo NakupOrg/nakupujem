@@ -11,6 +11,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Nakupujem\ShopBundle\Entity\Product;
 use Nakupujem\ShopBundle\Entity\Photo;
 use Nakupujem\ShopBundle\Form\ProductType;
+use Nakupujem\ShopBundle\Form\ContactFormType;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -39,11 +40,12 @@ class ProductController extends Controller
     public function showAction($product_id)
     {
         $product = $this->getDoctrine()->getRepository('NakupujemShopBundle:Product')->find($product_id);
-
+        $form = $this->createForm(new ContactFormType());
         if($product)
         {    
             return array(
                 'product' => $product,
+                'form' => $form->createView(),
                 );
         }
         else 
