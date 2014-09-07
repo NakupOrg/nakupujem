@@ -13,6 +13,7 @@ use Nakupujem\ShopBundle\Entity\Photo;
 use Nakupujem\ShopBundle\Form\ProductType;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Padam87\SearchBundle\Filter\Filter;
 
 
 class ProductController extends Controller
@@ -28,6 +29,28 @@ class ProductController extends Controller
 
         return array(
             'products' => $products,
+            'categories' => $categories,
+            );
+    }
+
+    /**
+     * @Route("/search/{keyword}", name="search")
+     * @Template("NakupujemShopBundle:Product:index.html.twig")
+     */
+    public function searchAction($keyword)
+    {
+        $data = array(
+            'title' => "*".$keyword."*",
+            'description' => "*".$keyword."*",
+            );
+        $fm = $this->get('padam87_search.filter.manager');
+        $filter = new Filter($data, 'NakupujemShopBundle:Product', 'product');
+        $qb = $fm->createQueryBuilder($filter);
+        $result = $qb->getQuery()->getResult();
+        $categories = $this->getDoctrine()->getRepository('NakupujemShopBundle:Category')->findAll();
+
+        return array(
+            'products' => $result,
             'categories' => $categories,
             );
     }

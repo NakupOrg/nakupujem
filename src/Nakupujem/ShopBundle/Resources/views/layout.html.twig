@@ -114,9 +114,14 @@ $script.ready(['core', 'plugins_dependency', 'plugins'], function(){
         <ul class="nav navbar-nav navbar-right right-side">
             <!-- User LogIn Button -->
             <li> 
+                <a href="{{path('search', {'keyword': "ruku"}) }}" class="btn btn-login"> {{"txt.search"|trans|raw}}</a>
                 <div class="btn-group">
+                    {% if app.user.username is defined %}
+                    <a href="{{path('user/profile')}}" class="btn btn-login"> {{"txt.profile"|trans|raw}}</a>
+                    {% else %}
                     <a href="{{path('_user_login')}}" class="btn btn-login"> {{"txt.login"|trans|raw}}</a>
                     <a href="{{path('_user_register')}}" class="btn btn-signup glyphicons user_add"><i></i>{{"txt.register"|trans|raw}}</a>
+                    {% endif %}
                 </div>
             </li>
         </ul>

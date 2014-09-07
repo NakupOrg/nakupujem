@@ -14,16 +14,41 @@ use Nakupujem\ShopBundle\Form\RegisterUserType;
 class UserController extends Controller
 {
     /**
-     * @Route("/user/profile")
+     * @Route("/user/profile", name="user/profile")
      * @Template()
      */
-    public function indexAction()
+    public function profileAction()
     {
         $username = $this->get('security.context')->getToken()->getUsername();
         $user = $this->getDoctrine()->getRepository('NakupujemShopBundle:User')->findOneByUsername($username);
 
         return array(
             'user' => $user,
+            );
+    }
+
+    /**
+     * @Route("/user/")
+     * @Template("NakupujemShopBundle:Product:index.html.twig")
+     */
+    public function indexAction()
+    {
+        if($this->get('security.context'))
+        {
+            $username = $this->get('security.context')->getToken()->getUsername();
+            $user = $this->getDoctrine()->getRepository('NakupujemShopBundle:User')->findOneByUsername($username);
+        }
+        else 
+        {
+            return $this->redirect($this->generateUrl("_user_login"));
+        }
+        $products = $this->getDoctrine()->getRepository('NakupujemShopBundle:Product')->findAll();
+        $categories = $this->getDoctrine()->getRepository('NakupujemShopBundle:Category')->findAll();
+
+        return array(
+            'user' => $user,
+            'products' => $products,
+            'categories' => $categories,
             );
     }
 
