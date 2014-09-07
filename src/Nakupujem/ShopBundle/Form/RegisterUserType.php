@@ -15,18 +15,29 @@ class RegisterUserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', 'text')
-            ->add('lastname', 'text')
-            ->add('username', 'text')
+            ->add('name', 'text', array(
+                'attr' => array('class' => 'form-control', 'placeholder' => 'Meno'),
+                ))
+            ->add('lastname', 'text', array(
+                'attr' => array('class' => 'form-control', 'placeholder' => 'Priezvisko'),
+                ))
+            ->add('username', 'text', array(
+                'attr' => array('class' => 'form-control', 'placeholder' => 'Prihlasovacie meno'),
+                ))
             ->add('password', 'repeated', array(
             	'type' => 'password',
             	'invalid_message' => 'Heslá sa musia zhodovať!',
             	'required' => true,
-			    'first_options'  => array('label' => 'Heslo:'),
-			    'second_options' => array('label' => 'Heslo znova:'),
+                'attr' => array('class' => 'form-control', 'placeholder' => 'Heslo'),
+			    'first_options'  => array('label' => 'Heslo', 'attr' => array('class' => 'form-control', 'placeholder' => 'Heslo')),
+			    'second_options' => array('label' => 'Heslo znova','attr' => array('class' => 'form-control', 'placeholder' => 'Heslo znova')),
             	))
-            ->add('email', 'email')
-            ->add('location', 'text');
+            ->add('email', 'email', array(
+                'attr' => array('class' => 'form-control', 'placeholder' => 'E-mail'),
+                ))
+            ->add('location', 'text', array(
+                'attr' => array('class' => 'form-control', 'placeholder' => 'Okolie'),
+                ));
     }
     
     /**
