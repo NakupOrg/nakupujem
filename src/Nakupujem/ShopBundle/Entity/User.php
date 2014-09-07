@@ -46,6 +46,13 @@ class User implements UserInterface
     /**
      * @var string
      *
+     * @ORM\Column(name="phone", type="string", length=255)
+     */
+    private $phone;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="email", type="string", length=30)
      */
     private $email;
@@ -72,6 +79,13 @@ class User implements UserInterface
     private $location;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="shipping", type="string", length=255)
+     */
+    private $shipping;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="lang", type="integer")
@@ -85,10 +99,18 @@ class User implements UserInterface
      */
     private $product;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Nakupujem\ShopBundle\Entity\Points", mappedBy="user", cascade={"persist", "merge", "remove", "refresh"})     
+     */
+    private $points;
+
     public function __construct()
     {
         $this->product = new \Doctrine\Common\Collections\ArrayCollection();
         $this->salt = md5(microtime());
+        $this->points = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -168,6 +190,52 @@ class User implements UserInterface
     public function getSalt()
     {
         return null;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     * @return Product
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set shipping
+     *
+     * @param string $shipping
+     * @return Product
+     */
+    public function setShipping($shipping)
+    {
+        $this->shipping = $shipping;
+
+        return $this;
+    }
+
+    /**
+     * Get shipping
+     *
+     * @return string 
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
     }
 
     /**
@@ -326,5 +394,38 @@ class User implements UserInterface
     public function eraseCredentials()
     {
 
+    }
+
+    /**
+     * Add points
+     *
+     * @param \Nakupujem\ShopBundle\Entity\Points $points
+     * @return User
+     */
+    public function addPoint(\Nakupujem\ShopBundle\Entity\Points $points)
+    {
+        $this->points[] = $points;
+
+        return $this;
+    }
+
+    /**
+     * Remove points
+     *
+     * @param \Nakupujem\ShopBundle\Entity\Points $points
+     */
+    public function removePoint(\Nakupujem\ShopBundle\Entity\Points $points)
+    {
+        $this->points->removeElement($points);
+    }
+
+    /**
+     * Get points
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPoints()
+    {
+        return $this->points;
     }
 }

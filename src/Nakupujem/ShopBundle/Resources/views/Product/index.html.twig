@@ -15,7 +15,12 @@
 					<span class="text">TOP</span>  
 				</div>
 				<div class="widget-body padding-none">
-					<a href="#" class="thumb"><img src="{{asset('uploads/photos/')}}{{product.photo[0].path}}" alt="" class="img-responsive"></a>
+					<a href="#" class="thumb">
+						{% if product.photo[0] is defined %}
+							<img src="{{asset('uploads/photos/')}}{{product.photo[0].path}}" alt="" class="img-responsive"></a>
+						{% else %}
+						<img src="{{asset('assets/images/fashion/female/')}}3.jpg" alt="" class="img-responsive"></a>
+						{% endif %}
 					<div class="description">
 						<a href="cart.html" class="btn btn-primary btn-circle pull-right"><i class="fa fa-info"></i></a>
 						<h5 class="text-uppercase">{{product.title}}</h5>
@@ -27,6 +32,41 @@
 		{% endfor %}
 	</div>
 {% endif %}
+{% endblock %}
+ 
+{% block slider %}
+{% for key, product in products if key < 5 %}
+<div class="item">
+        <div class="box-generic">
+            <div class="wrapper">
+                <div class="row">
+                    <div class="col-lg-9 col-md-8 padding-none">
+                        <a href="product.html">
+                            {% if product.photo[0] is defined %}
+								<img src="{{asset('uploads/photos/')}}{{product.photo[0].path}}" alt="" class="img-responsive">
+							{% else %}
+								<img src="{{asset('assets/images/fashion/female/')}}3.jpg" alt="" class="img-responsive">
+							{% endif %}
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-4 padding-none">
+                        <div class="innerAll inner-2x">
+                            <a href="cart.htmlcart.html" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
+                            <h3 class="text-uppercase">{{product.title}}</h3>
+                            <span class="text-primary text-medium text-condensed">&euro;{{product.price}}</span>
+                            <div class="clearfix"></div>
+                            <div class="separator"></div>
+
+                            <p class="innerTB">{{product.description}}</p>
+
+                            <a href="cart.html" class="btn btn-primary"><i class="fa fa-info"></i> Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
 {% endblock %}
 
 {% block category %}

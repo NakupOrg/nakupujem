@@ -3,6 +3,7 @@
 namespace Nakupujem\ShopBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * User
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var integer
@@ -45,6 +46,13 @@ class User
     /**
      * @var string
      *
+     * @ORM\Column(name="phone", type="string", length=255)
+     */
+    private $phone;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="email", type="string", length=30)
      */
     private $email;
@@ -71,6 +79,13 @@ class User
     private $location;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="shipping", type="string", length=255)
+     */
+    private $shipping;
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="lang", type="integer")
@@ -84,9 +99,18 @@ class User
      */
     private $product;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\OneToMany(targetEntity="Nakupujem\ShopBundle\Entity\Points", mappedBy="user", cascade={"persist", "merge", "remove", "refresh"})     
+     */
+    private $points;
+
     public function __construct()
     {
         $this->product = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->salt = md5(microtime());
+        $this->points = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -165,7 +189,53 @@ class User
      */
     public function getSalt()
     {
-        return $this->salt;
+        return null;
+    }
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     * @return Product
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
+     * Set shipping
+     *
+     * @param string $shipping
+     * @return Product
+     */
+    public function setShipping($shipping)
+    {
+        $this->shipping = $shipping;
+
+        return $this;
+    }
+
+    /**
+     * Get shipping
+     *
+     * @return string 
+     */
+    public function getShipping()
+    {
+        return $this->shipping;
     }
 
     /**
@@ -314,5 +384,15 @@ class User
     public function getProduct()
     {
         return $this->product;
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function eraseCredentials()
+    {
+
     }
 }

@@ -21,7 +21,7 @@
 
             <!--[if lt IE 9]><link rel="stylesheet" href="../assets/components/library/bootstrap/css/bootstrap.min.css" /><![endif]-->
 
-                    <link rel="stylesheet" href="../assets/css/shop/module.shop.stylesheet-complete.min.css" />
+                    <link rel="stylesheet" href="{{asset('assets/css/shop/')}}module.shop.stylesheet-complete.min.css" />
         
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -30,7 +30,7 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 
-    <script src="../assets/plugins/core_ajaxify_loadscript/script.min.js?v=v2.0.0-rc1&amp;sv=v0.0.1.2"></script>
+    <script src="{{asset('assets/plugins/')}}core_ajaxify_loadscript/script.min.js?v=v2.0.0-rc1&amp;sv=v0.0.1.2"></script>
 
 <script>var App = {};</script>
 
@@ -39,39 +39,39 @@ App.Scripts = {
 
     /* CORE scripts always load first; */
     core: [
-        '../assets/library/jquery/jquery.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/library/modernizr/modernizr.js?v=v2.0.0-rc1&sv=v0.0.1.2'
+        '{{ asset("assets/library/jquery/")}}jquery.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/library/modernizr/")}}modernizr.js?v=v2.0.0-rc1&sv=v0.0.1.2'
     ],
 
     /* PLUGINS_DEPENDENCY always load after CORE but before PLUGINS; */
     plugins_dependency: [
-        '../assets/library/bootstrap/js/bootstrap.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/library/jquery/jquery-migrate.min.js?v=v2.0.0-rc1&sv=v0.0.1.2'
+        '{{ asset("assets/library/bootstrap/js/")}}bootstrap.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/library/jquery/")}}jquery-migrate.min.js?v=v2.0.0-rc1&sv=v0.0.1.2'
     ],
 
     /* PLUGINS always load after CORE and PLUGINS_DEPENDENCY, but before the BUNDLE / initialization scripts; */
     plugins: [
-        '../assets/plugins/core_ajaxify_davis/davis.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/plugins/core_ajaxify_lazyjaxdavis/jquery.lazyjaxdavis.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/plugins/core_preload/pace.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/plugins/media_owl-carousel/owl.carousel.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/plugins/forms_elements_bootstrap-select/js/bootstrap-select.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/plugins/media_holder/holder.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/plugins/other_appear/jquery.appear.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/plugins/core_less-js/less.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/plugins/charts_flot/excanvas.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/plugins/core_browser/ie/ie.prototype.polyfill.js?v=v2.0.0-rc1&sv=v0.0.1.2'
+        '{{ asset("assets/plugins/core_ajaxify_davis/")}}davis.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/plugins/core_ajaxify_lazyjaxdavis/")}}jquery.lazyjaxdavis.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/plugins/core_preload/")}}pace.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/plugins/media_owl-carousel/")}}owl.carousel.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/plugins/forms_elements_bootstrap-select/")}}js/bootstrap-select.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/plugins/media_holder/")}}holder.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/plugins/other_appear/")}}jquery.appear.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/plugins/core_less-js/")}}less.min.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/plugins/charts_flot/")}}excanvas.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/plugins/core_browser/ie/")}}ie.prototype.polyfill.js?v=v2.0.0-rc1&sv=v0.0.1.2'
     ],
 
     /* The initialization scripts always load last and are automatically and dynamically loaded when AJAX navigation is enabled; */
     bundle: [
-        '../assets/components/core_ajaxify/ajaxify.init.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/components/core_preload/preload.pace.init.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/components/front_core/front.core.init.js?v=v2.0.0-rc1', 
-        '../assets/components/shop_core/shop.animations.init.js?v=v2.0.0-rc1', 
-        '../assets/components/shop_owl-carousel/front.shop.owl-carousel.catalog.init.js?v=v2.0.0-rc1', 
-        '../assets/components/forms_elements_bootstrap-select/bootstrap-select.init.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
-        '../assets/components/core/core.init.js?v=v2.0.0-rc1'
+        '{{ asset("assets/components/core_ajaxify/")}}ajaxify.init.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/components/core_preload/")}}preload.pace.init.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/components/front_core/")}}front.core.init.js?v=v2.0.0-rc1', 
+        '{{ asset("assets/components/shop_core/")}}shop.animations.init.js?v=v2.0.0-rc1', 
+        '{{ asset("assets/components/shop_owl-carousel/")}}front.shop.owl-carousel.catalog.init.js?v=v2.0.0-rc1', 
+        '{{ asset("assets/components/forms_elements_bootstrap-select/")}}bootstrap-select.init.js?v=v2.0.0-rc1&sv=v0.0.1.2', 
+        '{{ asset("assets/components/core/")}}core.init.js?v=v2.0.0-rc1'
     ]
 
 };
@@ -130,86 +130,8 @@ $script.ready(['core', 'plugins_dependency', 'plugins'], function(){
             <div class="container innerTB inner-2x">
             <div id="owl-catalog" class="owl-carousel owl-theme">
             
-    <div class="item">
-        <div class="box-generic">
-            <div class="wrapper">
-                <div class="row">
-                    <div class="col-lg-9 col-md-8 padding-none">
-                        <a href="product.html">
-                            <img src="../assets/images/shop/photodune-4524631-long-wavy-hair-s.jpg" alt="photo" class="img-responsive" />
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-4 padding-none">
-                        <div class="innerAll inner-2x">
-                            <a href="cart.htmlcart.html" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
-                            <h3 class="text-uppercase">Product 1</h3>
-                            <span class="text-primary text-medium text-condensed">&euro;262.00</span>
-                            <div class="clearfix"></div>
-                            <div class="separator"></div>
-
-                            <p class="innerTB">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.</p>
-
-                            <a href="cart.html" class="btn btn-primary"><i class="fa fa-plus"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% block slider %} {% endblock %}
         
-    <div class="item">
-        <div class="box-generic">
-            <div class="wrapper">
-                <div class="row">
-                    <div class="col-lg-9 col-md-8 padding-none">
-                        <a href="product.html">
-                            <img src="../assets/images/shop/photodune-4532250-long-wavy-hair-s.jpg" alt="photo" class="img-responsive" />
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-4 padding-none">
-                        <div class="innerAll inner-2x">
-                            <a href="cart.htmlcart.html" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
-                            <h3 class="text-uppercase">Product 2</h3>
-                            <span class="text-primary text-medium text-condensed">&euro;193.00</span>
-                            <div class="clearfix"></div>
-                            <div class="separator"></div>
-
-                            <p class="innerTB">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.</p>
-
-                            <a href="cart.html" class="btn btn-primary"><i class="fa fa-plus"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-        
-    <div class="item">
-        <div class="box-generic">
-            <div class="wrapper">
-                <div class="row">
-                    <div class="col-lg-9 col-md-8 padding-none">
-                        <a href="product.html">
-                            <img src="../assets/images/shop/photodune-4524609-long-wavy-hair-s.jpg" alt="photo" class="img-responsive" />
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-4 padding-none">
-                        <div class="innerAll inner-2x">
-                            <a href="cart.htmlcart.html" class="btn btn-primary btn-circle pull-right"><i class="fa fa-shopping-cart"></i></a>
-                            <h3 class="text-uppercase">Product 3</h3>
-                            <span class="text-primary text-medium text-condensed">&euro;116.00</span>
-                            <div class="clearfix"></div>
-                            <div class="separator"></div>
-
-                            <p class="innerTB">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, illo, labore, a, dolorum doloribus dignissimos vitae esse sint ipsum eos non repellat possimus saepe quod neque aliquam fugiat reiciendis cupiditate.</p>
-
-                            <a href="cart.html" class="btn btn-primary"><i class="fa fa-plus"></i> Add to Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
     </div>
     </div><!-- END OF SLIDER -->

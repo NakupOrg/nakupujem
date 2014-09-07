@@ -16,28 +16,35 @@ class RegisterUserType extends AbstractType
     {
         $builder
             ->add('name', 'text', array(
-                'attr' => array('class' => 'form-control', 'placeholder' => 'Meno'),
+                'attr' => array('class' => 'form-control', 'placeholder' => 'Meno...'),
                 ))
             ->add('lastname', 'text', array(
-                'attr' => array('class' => 'form-control', 'placeholder' => 'Priezvisko'),
+                'attr' => array('class' => 'form-control', 'placeholder' => 'Priezvisko...'),
                 ))
             ->add('username', 'text', array(
-                'attr' => array('class' => 'form-control', 'placeholder' => 'Prihlasovacie meno'),
+                'attr' => array('class' => 'form-control', 'placeholder' => 'Prihlasovacie meno...'),
                 ))
             ->add('password', 'repeated', array(
             	'type' => 'password',
             	'invalid_message' => 'Heslá sa musia zhodovať!',
             	'required' => true,
                 'attr' => array('class' => 'form-control', 'placeholder' => 'Heslo'),
-			    'first_options'  => array('label' => 'Heslo', 'attr' => array('class' => 'form-control', 'placeholder' => 'Heslo')),
-			    'second_options' => array('label' => 'Heslo znova','attr' => array('class' => 'form-control', 'placeholder' => 'Heslo znova')),
+			    'first_options'  => array('label' => 'Heslo', 'attr' => array('class' => 'form-control', 'placeholder' => 'Heslo...')),
+			    'second_options' => array('label' => 'Heslo znova','attr' => array('class' => 'form-control', 'placeholder' => 'Heslo znova...')),
             	))
             ->add('email', 'email', array(
-                'attr' => array('class' => 'form-control', 'placeholder' => 'E-mail'),
+                'attr' => array('class' => 'form-control', 'placeholder' => 'E-mail...'),
                 ))
             ->add('location', 'text', array(
-                'attr' => array('class' => 'form-control', 'placeholder' => 'Okolie'),
-                ));
+                'attr' => array('class' => 'form-control', 'placeholder' => 'Okolie...'),
+                ))
+            ->add('shipping','text', array(
+                'attr' => array('class' => 'form-control', 'placeholder' => 'Posielam do...'),
+                ))
+            ->add('phone','text', array(
+                'attr' => array('class' => 'form-control', 'placeholder' => 'Telefónne číslo...'),
+                ))
+            ;
     }
     
     /**

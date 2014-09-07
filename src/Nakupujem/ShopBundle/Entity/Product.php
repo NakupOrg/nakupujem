@@ -37,34 +37,6 @@ class Product
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="phone", type="string", length=255)
-     */
-    private $phone;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=255)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="location", type="string", length=255)
-     */
-    private $location;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="shipping", type="string", length=255)
-     */
-    private $shipping;
-
-    /**
      * @var float
      *
      * @ORM\Column(name="price", type="float")
@@ -175,98 +147,6 @@ class Product
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set phone
-     *
-     * @param string $phone
-     * @return Product
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string 
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return Product
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
-    /**
-     * Set location
-     *
-     * @param string $location
-     * @return Product
-     */
-    public function setLocation($location)
-    {
-        $this->location = $location;
-
-        return $this;
-    }
-
-    /**
-     * Get location
-     *
-     * @return string 
-     */
-    public function getLocation()
-    {
-        return $this->location;
-    }
-
-    /**
-     * Set shipping
-     *
-     * @param string $shipping
-     * @return Product
-     */
-    public function setShipping($shipping)
-    {
-        $this->shipping = $shipping;
-
-        return $this;
-    }
-
-    /**
-     * Get shipping
-     *
-     * @return string 
-     */
-    public function getShipping()
-    {
-        return $this->shipping;
     }
 
     /**

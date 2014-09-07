@@ -17,14 +17,7 @@ class ProductType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
-            ->add('phone', 'text', array(
-                'required' => false,
-                ))
-            ->add('email')
-            ->add('location')
-            ->add('shipping')
             ->add('price')
-            ->add('date')
             ->add('top', 'choice', array(
                 'choices' => array('y' => 'Áno', 'n' => 'Nie'),
                 'required' => 'true',

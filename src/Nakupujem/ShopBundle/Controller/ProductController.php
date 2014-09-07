@@ -11,6 +11,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Nakupujem\ShopBundle\Entity\Product;
 use Nakupujem\ShopBundle\Entity\Photo;
 use Nakupujem\ShopBundle\Form\ProductType;
+use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
 class ProductController extends Controller
@@ -31,20 +33,28 @@ class ProductController extends Controller
     }
 
     /**
-     * @Route("/product/show/{product_Id}")
+     * @Route("/product/show/{product_id}", defaults={"product_id" = null})
      * @Template()
      */
     public function showAction($product_id)
     {
         $product = $this->getDoctrine()->getRepository('NakupujemShopBundle:Product')->find($product_id);
 
-        return array(
-            'product' => $product,
-            );
+        if($product)
+        {    
+            return array(
+                'product' => $product,
+                );
+        }
+        else 
+        {
+            throw new HttpNotFoundException('Daný produkt neexistuje!');
+            
+        }
     }
 
     /**
-     * @Route("product/add", name="product/add")
+     * @Route("/user/product/add", name="product/add")
      * @Template()
      */
     public function addAction(Request $request)
@@ -75,41 +85,79 @@ class ProductController extends Controller
     }
 
     /**
-     * @Route("product/{product_id}/edit/", name="product/edit")
+     * @Route("/user/product/edit/{product_id}", name="product/edit")
      * @Template()
      */
     public function editAction(Request $request, $product_id)
     {
+        $username = $this->get('security.context')->getToken()->getUsername();
+        $user = $this->getDoctrine()->getRepository('NakupujemShopBundle:User')->findOneByUsername($username);
+
         $product = $this->getDoctrine()->getRepository('NakupujemShopBundle:Product')->find($product_id);
+        if($product)
+        {   
+            if($product->getUser() === $user)
+            {
+                $form = $this->createForm(new ProductType(), $product);
 
-        $form = $this->createForm(new ProductType(), $product);
+                $form->handleRequest($request);
 
-        $form->handleRequest($request);
+                if($form->isValid())
+                {
+                    $em = $this->getDoctrine->getManager();
+                    $photo->upload();
+                    $photo->setProduct($product);
+                    $em->persist($product);
+                    $em->flush();
+                }
 
-        if($form->isValid())
-        {
-            $em = $this->getDoctrine->getManager();
-            $photo->upload();
-            $photo->setProduct($product);
-            $em->persist($product);
-            $em->flush();
+                return array(
+                    'form' => $form->createView(),
+                    );
+            }
+
+            else 
+            {
+                throw new AccessDeniedHttpException('You have no right to do this!');            
+            }
         }
 
-        return array(
-            'form' => $form->createView(),
-            );
+        else 
+        {
+            throw new NotFoundHttpException('Daný produkt neexistuje!');
+        }
+
     }
 
     /**
-     * @Route("product/{product_id}/delete")
+     * @Route("/user/product/delete/{product_id}")
      * @Template()
      */
     public function deleteAction($product_id)
     {
+        $username = $this->get('security.context')->getToken()->getUsername();
+        $user = $this->getDoctrine()->getRepository('NakupujemShopBundle:User')->findOneByUsername($username);
+
         $product = $this->getDoctrine()->getRepository('NakupujemShopBundle:Product')->find($product_id);
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($product);
-        $em->flush();
+        if($product)
+        {
+            if($product->getUser() === $user)
+            {
+                $em = $this->getDoctrine()->getManager();
+                $em->remove($product);
+                $em->flush();
+            }
+
+            else 
+            {
+                throw new AccessDeniedHttpException('You have no right to do this!');            
+            }
+        }
+
+        else 
+        {
+            throw new NotFoundHttpException('Daný produkt neexistuje!');
+        }
     }
 
 }
