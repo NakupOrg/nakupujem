@@ -37,14 +37,14 @@ security:
             #    realm: "Secured Demo Area"
 
         user_area:
-            pattern:    /user/.
+            pattern:    /user/*
             provider: entity_user
             #anonymous: ~
             form_login:
                 check_path: _user_security_check
                 login_path: _user_login
                 always_use_default_target_path: false
-                default_target_path: /user/profile
+                default_target_path: /user/
             logout: 
                 path:   _user_logout
                 target: /   
