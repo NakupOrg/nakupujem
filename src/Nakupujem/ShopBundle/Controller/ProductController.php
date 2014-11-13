@@ -35,7 +35,7 @@ class ProductController extends Controller
     }
 
     /**
-     * @Route("/search/{keyword}", name="search")
+     * @Route("/search", name="search")
      * @Template("NakupujemShopBundle:Product:index.html.twig")
      */
     public function searchAction(Request $request)
