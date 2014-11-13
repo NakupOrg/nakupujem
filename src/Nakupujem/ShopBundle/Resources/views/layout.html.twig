@@ -154,74 +154,19 @@ $script.ready(['core', 'plugins_dependency', 'plugins'], function(){
 <div class="container">
     <div class="row innerTB">
         <div class="col-md-9">
-    <h5 class="text-faded">{{"txt.filter"|trans|raw}}</h5>
-    <div class="product-filter">
-        <!-- Filters -->
-<div class="filter-bar bg-white">
-    <form class="margin-none form-inline">
-        <div class="row margin-none">
-        
-             <div class="col-md-8">
-                <div class="row margin-none">
-                    <div class="form-group col-md-6 padding-none">
-                        <label class="label-control">Sort:</label>
-                        <div class="col-md-6 padding-none">
-                            <select name="from" class="selectpicker margin-none" data-style="btn-default" data-width="100%">
-                                <option>A-Z</option>
-                                <option>Min to Max</option>
-                                <option>Popular</option>
-                            </select>
-                        </div>
-                    </div>
-                    <!-- // Select END -->
-                
-                    <!-- Min -->
-                    <div class="form-group col-md-3 padding-none">
-                        <label>Min:</label>
-                        <div class="input-group">
-                            <input type="text" name="from" class="form-control" value="100" />
-                            <span class="input-group-addon"><i class="fa fa-euro"></i></span>
-                        </div>
-                    </div>
-                    <!-- // Min END -->
-                    <!-- Max -->
-                    <div class="form-group col-md-3 padding-none">
-                        <label>Max:</label>
-                        <div class="input-group">
-                            <input type="text" name="from" class="form-control" value="500" />
-                            <span class="input-group-addon"><i class="fa fa-euro"></i></span>
-                        </div>
-                    </div>
-                    <!-- // Max END -->
-                </div>
-            </div>
-        
-            <div class="col-md-4 text-right">
-                <div class="form-group padding-none">
-                    <div class="btn-group">
-                        <a href="" class="btn btn-primary"><i class="fa fa-list"></i></a>
-                        <a href="" class="btn btn-default"><i class="fa fa-th"></i></a>
-                    </div>
-                </div>      
-            </div>
-        
-        </div>
-    </form>
-</div>
-<!-- // Filters END -->
+            {% block filters %}{% endblock %}
+    {% if app.request.attributes.get('_route') != 'product/add' %}
+        <div class="separator"></div>
+    {% endif %}
 
-
-
- 
-    </div>
-    <div class="separator"></div>
-
-    <h5 class="text-faded margin-none">{{"txt.products"|trans|raw}}</h5>
     {% block products %}{% endblock %}
+
 </div>
+    {% block forms %}{% endblock %}
 
 
 {% block category %} {% endblock %}
+
 
 
 

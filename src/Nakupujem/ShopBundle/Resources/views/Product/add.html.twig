@@ -1,15 +1,53 @@
-{% extends "::base.html.twig" %}
+{% extends "NakupujemShopBundle::layout.html.twig" %}
 
 {% block title %}NakupujemShopBundle:Product:add{% endblock %}
 
-{% block body %}
-{{form_start(form)}}
+{% block forms %}
 
-{{form_row(form.title)}}
-{{form_row(form.description)}}
-{{form_row(form.price)}}
-{{form_row(form.top)}}
-{{form_row(form.subcategory)}}
-{{form_widget(form.photo, {'attr': {'label': ''}})}}
-{{form_end(form)}}
+<div class="panel panel-default col-sm-12">
+
+	<div class="panel-body">
+		<div class="col-table">		
+			<h3 class="margin-none text-center text-primary"><i class="fa fa-pencil"></i> Pridanie inzerátu</h3>
+		</div>
+		{{form_start(form)}}
+		<div class="row">
+			<div class="form-group col-sm-12 col-lg-6">
+				<label for="exampleInputEmail1">Nadpis</label>
+				{{form_widget(form.title)}}
+			</div>
+			<div class="form-group col-sm-12 col-lg-6">
+				<label for="exampleInputEmail1">Kategória</label>
+				{{form_widget(form.subcategory)}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-sm-12 col-lg-6">
+				<label for="exampleInputEmail1">Cena</label>
+				{{form_widget(form.price)}}
+			</div>
+			<div class="form-group col-sm-12 col-lg-6">
+				<label for="exampleInputEmail1">Topovať</label>
+				{{form_widget(form.top)}}
+			</div>
+		</div>
+		<div class="row">
+			<div class="form-group col-sm-12 col-lg-6">
+				<label for="exampleInputEmail1">Popis</label>
+				{{form_widget(form.description)}}
+			</div>
+			<div class="form-group col-sm-12 col-lg-6">
+				<label for="exampleInputPassword1">Obrázky</label>
+				{{form_widget(form.photo)}}
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary btn-block">Pridať inzerát</button>
+		{{form_errors(form)}}
+		{{form_end(form)}}
+	</div>
+
+</div>
+<div class="clearfix"></div>				
+
+
 {% endblock %}

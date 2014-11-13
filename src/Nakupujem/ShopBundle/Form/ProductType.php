@@ -15,12 +15,19 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('description')
-            ->add('price')
+            ->add('title', 'text', array(
+                'attr' => array('class' => 'form-control')
+                ))
+            ->add('description', 'textarea', array(
+                'attr' => array('class' => 'form-control')
+                ))
+            ->add('price', 'number', array(
+                'attr' => array('class' => 'form-control')
+                ))
             ->add('top', 'choice', array(
                 'choices' => array('y' => 'Áno', 'n' => 'Nie'),
                 'required' => 'true',
+                'attr' => array('class' => 'form-control'),
                 ))
             ->add('subcategory', 'entity', array(
                 'class' => 'NakupujemShopBundle:Subcategory',
@@ -28,13 +35,13 @@ class ProductType extends AbstractType
                 'multiple' => false,
                 'required' => true,
                 'property' => 'name',
+                'attr' => array('class' => 'form-control'),
                 ))
             ->add('photo', 'collection', array(
                 'type' => new PhotoType(),
-                'label' => true,
+                'label' => false,
                 'required' => false,
                 ))
-            ->add('save', 'submit')
         ;
     }
     
