@@ -125,9 +125,9 @@ $script.ready(['core', 'plugins_dependency', 'plugins'], function(){
                 </div>
             </li>
         </ul>
-            <form action="" class="navbar-form navbar-search navbar-left" role="search">
+            <form action="{{path('search')}}" method="GET" class="navbar-form navbar-search navbar-left" role="search">
                 <div class="input-group">
-                    <input type="text" placeholder="{{"txt.search"|trans|raw}}..." class="form-control" />
+                    <input type="text" placeholder="{{"txt.search"|trans|raw}}..." class="form-control" name="keyword" />
                     <div class="input-group-btn">
                         <button class="btn btn-primary">
                             <i class="fa fa-search"></i>
