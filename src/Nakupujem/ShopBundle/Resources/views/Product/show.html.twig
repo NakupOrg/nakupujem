@@ -23,6 +23,7 @@
 
                     <link rel="stylesheet" href="{{ asset('assets/css/shop/')}}module.shop.stylesheet-complete.min.css" />
         			<link rel="stylesheet/less" href="{{ asset('assets/mine/wysihtml5.less')}}" />
+        			<link rel="stylesheet/less" href="{{asset('assets/css/shop/')}}style.less" />
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -46,22 +47,40 @@
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle " data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar "></span>
+                <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Nakupujem.net</a>
+            <img src="{{asset('assets/images/shop/logo/nakupujem_logo.png')}}" class="navbar-brand" />
         </div>
-        <!-- Nav Bar Right -->          
-        <ul class="nav navbar-nav navbar-right right-side">
+        <!-- Nav Bar Right -->      
+        <ul class="nav navbar-nav navbar-right right-side navbar-collapse collapse">
             <!-- User LogIn Button -->
             <li> 
                 <div class="btn-group">
-                    <a href="#" class="btn btn-login"> Login</a>
-                    <a href="#" class="btn btn-signup glyphicons user_add"><i></i>Sign up</a>
+                    {% if app.user.username is defined %}
+                    <a href="{{path('user/profile')}}" class="btn btn-login"> {{"txt.profile"|trans|raw}}</a>
+                    {% else %}
+                    <a href="{{path('_user_login')}}" class="btn btn-login"> {{"txt.login"|trans|raw}}</a>
+                    <a href="{{path('_user_register')}}" class="btn btn-signup glyphicons user_add"><i></i>{{"txt.register"|trans|raw}}</a>
+                    {% endif %}
                 </div>
             </li>
         </ul>
+        <!--
+        <div class="navbar-collapse collapse">
+            <form action="" class="navbar-form navbar-search navbar-left" role="search">
+                <div class="input-group">
+                    <input type="text" placeholder="{{"txt.search"|trans|raw}}..." class="form-control" />
+                    <div class="input-group-btn">
+                        <button class="btn btn-primary">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>  
+        </div>
+    -->
     </div>
 </div>
 
@@ -146,6 +165,7 @@
 									<label for="nakupujem_shopbundle_contact_form_message">Správa</label>
 									{{form_widget(form.message)}}
 								</div>
+								<button data-loading-text="Odosielam..." type="submit" id="btn-loading" class="btn btn-primary btn-block">Odoslať &raquo;</button>
 
 								{{form_end(form)}}
 							</div>
@@ -306,5 +326,6 @@
 <script src="{{ asset('assets/plugins/forms_editors_wysihtml5/js/')}}wysihtml5-0.3.0_rc2.min.js?v=v2.0.0-rc1&amp;sv=v0.0.1.2"></script>
 <script src="{{ asset('assets/plugins/forms_editors_wysihtml5/js/')}}bootstrap-wysihtml5-0.0.2.js?v=v2.0.0-rc1&amp;sv=v0.0.1.2"></script>
 <script src="{{ asset('assets/components/forms_editors_wysihtml5/')}}wysihtml5.init.js?v=v2.0.0-rc1"></script>
+<script src="{{ asset('assets/components/forms_elements_button-states/')}}button-loading.init.js?v=v2.0.0-rc1&amp;sv=v0.0.1.2"></script>
 </body>
 </html>

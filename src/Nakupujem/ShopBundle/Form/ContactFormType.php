@@ -16,7 +16,7 @@ class ContactFormType extends AbstractType
     {
         $builder
             ->add('subject', 'text', array(
-                'attr' => array('placeholder' => 'Predmet...', 'class' => 'form-control')))
+                'attr' => array('placeholder' => 'Predmet...', 'class' => 'form-control', 'disabled' => 'disabled')))
             ->add('message', 'textarea', array(
                 'attr' => array('placeholder' => 'Správa...', 'class' => 'wysihtml5 form-control', 'rows' => 5)))
         ;

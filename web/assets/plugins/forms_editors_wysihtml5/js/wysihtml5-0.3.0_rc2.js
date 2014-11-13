@@ -8347,14 +8347,14 @@ wysihtml5.views.View = Base.extend(
     dom.insertCSS(ADDITIONAL_CSS_RULES).into(this.element.ownerDocument);
   
     // --------- :focus styles ---------
-    focusWithoutScrolling(textareaElement);
-    dom.copyStyles(BOX_FORMATTING).from(textareaElement).to(this.focusStylesHost);
-    dom.copyStyles(TEXT_FORMATTING).from(textareaElement).to(this.focusStylesHost);
+    //focusWithoutScrolling(textareaElement);
+    //dom.copyStyles(BOX_FORMATTING).from(textareaElement).to(this.focusStylesHost);
+    //dom.copyStyles(TEXT_FORMATTING).from(textareaElement).to(this.focusStylesHost);
   
     // Make sure that we don't change the display style of the iframe when copying styles oblur/onfocus
     // this is needed for when the change_view event is fired where the iframe is hidden and then
     // the blur event fires and re-displays it
-    var boxFormattingStyles = wysihtml5.lang.array(BOX_FORMATTING).without(["display"]);
+   // var boxFormattingStyles = wysihtml5.lang.array(BOX_FORMATTING).without(["display"]);
   
     // --------- restore focus ---------
     if (originalActiveElement) {
