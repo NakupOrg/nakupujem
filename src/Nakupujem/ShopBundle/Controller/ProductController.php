@@ -38,11 +38,11 @@ class ProductController extends Controller
      * @Route("/search/{keyword}", name="search")
      * @Template("NakupujemShopBundle:Product:index.html.twig")
      */
-    public function searchAction($keyword)
+    public function searchAction(Request $request)
     {
         $data = array(
-            'title' => "*".$keyword."*",
-            'description' => "*".$keyword."*",
+            'title' => "*".$request->get('keyword')."*",
+            'description' => "*".$request->get('keyword')."*",
             );
         $fm = $this->get('padam87_search.filter.manager');
         $filter = new Filter($data, 'NakupujemShopBundle:Product', 'product');
