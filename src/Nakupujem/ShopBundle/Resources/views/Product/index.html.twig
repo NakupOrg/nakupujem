@@ -15,7 +15,7 @@
 					<span class="text">TOP</span>  
 				</div>
 				<div class="widget-body padding-none">
-					<a href="#" class="thumb">
+					<a href="{{path('product_show', {"product_id": product.id})}}" class="thumb">
 						{% if product.photo[0] is defined %}
 							<img src="{{asset('uploads/photos/')}}{{product.photo[0].path}}" alt="" class="img-responsive"></a>
 						{% else %}

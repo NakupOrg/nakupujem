@@ -57,7 +57,7 @@ class ProductController extends Controller
     }
 
     /**
-     * @Route("/product/show/{product_id}", defaults={"product_id" = null})
+     * @Route("/product/show/{product_id}", defaults={"product_id" = null}, name="product_show")
      * @Template()
      */
     public function showAction($product_id)
